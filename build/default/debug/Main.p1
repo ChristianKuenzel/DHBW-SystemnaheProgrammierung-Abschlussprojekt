@@ -30,11 +30,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "497
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4520.h: 497: extern volatile PORTCbits_t PORTCbits __attribute__((address(0xF82)));
 [v _PORTCbits `VS22 ~T0 @X0 0 e@3970 ]
-"39 C:\Program Files\Microchip\xc8\v2.32\pic\include\c99\stdlib.h
-[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\c99\stdlib.h: 39: int rand (void);
-[v _rand `(i ~T0 @X0 0 ef ]
 [p mainexit ]
-"1477 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4520.h
+"1477
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4520.h: 1477: extern volatile unsigned char TRISA __attribute__((address(0xF92)));
 [v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
 "1699
@@ -128,71 +125,71 @@ Version 4.0 HI-TECH Software Intermediate Code
 "315
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4520.h: 315: extern volatile PORTBbits_t PORTBbits __attribute__((address(0xF81)));
 [v _PORTBbits `VS16 ~T0 @X0 0 e@3969 ]
-"67 ./Definitions.h
+"45 ./Definitions.h
 [p x OSC  =  HSPLL       ]
-"68
+"46
 [p x FCMEN  =  OFF       ]
-"69
+"47
 [p x IESO  =  OFF        ]
-"72
+"50
 [p x PWRT  =  OFF        ]
-"73
+"51
 [p x BOREN  =  OFF       ]
-"74
+"52
 [p x BORV  =  3          ]
-"77
+"55
 [p x WDT  =  OFF         ]
-"78
+"56
 [p x WDTPS  =  32768     ]
-"81
+"59
 [p x CCP2MX  =  PORTC    ]
-"82
+"60
 [p x PBADEN  =  OFF      ]
-"83
+"61
 [p x LPT1OSC  =  OFF     ]
-"84
+"62
 [p x MCLRE  =  ON        ]
-"87
+"65
 [p x STVREN  =  ON       ]
-"88
+"66
 [p x LVP  =  ON          ]
-"89
+"67
 [p x XINST  =  OFF       ]
-"92
+"70
 [p x CP0  =  OFF         ]
-"93
+"71
 [p x CP1  =  OFF         ]
-"94
+"72
 [p x CP2  =  OFF         ]
-"95
+"73
 [p x CP3  =  OFF         ]
-"98
+"76
 [p x CPB  =  OFF         ]
-"99
+"77
 [p x CPD  =  OFF         ]
-"102
+"80
 [p x WRT0  =  OFF        ]
-"103
+"81
 [p x WRT1  =  OFF        ]
-"104
+"82
 [p x WRT2  =  OFF        ]
-"105
+"83
 [p x WRT3  =  OFF        ]
-"108
+"86
 [p x WRTC  =  OFF        ]
-"109
+"87
 [p x WRTB  =  OFF        ]
-"110
+"88
 [p x WRTD  =  OFF        ]
-"113
+"91
 [p x EBTR0  =  OFF       ]
-"114
+"92
 [p x EBTR1  =  OFF       ]
-"115
+"93
 [p x EBTR2  =  OFF       ]
-"116
+"94
 [p x EBTR3  =  OFF       ]
-"119
+"97
 [p x EBTRB  =  OFF       ]
 "54 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4520.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4520.h: 54: __asm("PORTA equ 0F80h");
@@ -608,531 +605,326 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7001
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4520.h: 7001: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"20 Main.c
-[; ;Main.c: 20: int calculateTime(int note) {
+"11 Main.c
+[; ;Main.c: 11: int calculateTime(int note) {
 [v _calculateTime `(i ~T0 @X0 1 ef1`i ]
 {
 [e :U _calculateTime ]
 [v _note `i ~T0 @X0 1 r1 ]
 [f ]
-"22
-[; ;Main.c: 22:     float n;
+"12
+[; ;Main.c: 12:     float n;
 [v _n `f ~T0 @X0 1 a ]
-"23
-[; ;Main.c: 23:     n = ((1/note)/2)*1000000;
+"13
+[; ;Main.c: 13:     n = ((1/note)/2)*1000000;
 [e = _n -> * -> / / -> 1 `i _note -> 2 `i `l -> 1000000 `l `f ]
-"26
-[; ;Main.c: 26:     int x;
+"14
+[; ;Main.c: 14:     int x;
 [v _x `i ~T0 @X0 1 a ]
-"27
-[; ;Main.c: 27:     x = (int)n;
+"15
+[; ;Main.c: 15:     x = (int)n;
 [e = _x -> _n `i ]
-"28
-[; ;Main.c: 28:     return x;
+"16
+[; ;Main.c: 16:     return x;
 [e ) _x ]
 [e $UE 281  ]
-"29
-[; ;Main.c: 29: }
+"17
+[; ;Main.c: 17: }
 [e :UE 281 ]
 }
-"33
-[; ;Main.c: 33: void delay_ms(int time) {
+"19
+[; ;Main.c: 19: void delay_ms(int time) {
 [v _delay_ms `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _delay_ms ]
 [v _time `i ~T0 @X0 1 r1 ]
 [f ]
-"34
-[; ;Main.c: 34:     for(int j=0; j<time; j++) {
+"20
+[; ;Main.c: 20:     for(int j=0; j<time; j++) {
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
 [e $U 286  ]
 [e :U 283 ]
 {
-"35
-[; ;Main.c: 35:         _delay((unsigned long)((1)*(4000000/4000.0)));
+"21
+[; ;Main.c: 21:         _delay((unsigned long)((1)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"36
-[; ;Main.c: 36:     }
+"22
+[; ;Main.c: 22:     }
 }
 [e ++ _j -> 1 `i ]
 [e :U 286 ]
 [e $ < _j _time 283  ]
 [e :U 284 ]
 }
-"37
-[; ;Main.c: 37: }
+"23
+[; ;Main.c: 23: }
 [e :UE 282 ]
 }
-"40
-[; ;Main.c: 40: void playTone(int note) {
+"25
+[; ;Main.c: 25: void playTone(int note)
 [v _playTone `(v ~T0 @X0 1 ef1`i ]
+"26
+[; ;Main.c: 26: {
 {
 [e :U _playTone ]
+"25
+[; ;Main.c: 25: void playTone(int note)
 [v _note `i ~T0 @X0 1 r1 ]
+"26
+[; ;Main.c: 26: {
 [f ]
-"42
-[; ;Main.c: 42:   int time = calculateTime(note);
+"27
+[; ;Main.c: 27:   int time = calculateTime(note);
 [v _time `i ~T0 @X0 1 a ]
 [e = _time ( _calculateTime (1 _note ]
-"43
-[; ;Main.c: 43:   for(int i=0; i<note; i++)
+"28
+[; ;Main.c: 28:   for(int i=0; i<note; i++)
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $U 291  ]
 [e :U 288 ]
-"44
-[; ;Main.c: 44:     {
+"29
+[; ;Main.c: 29:     {
 {
-"45
-[; ;Main.c: 45:         PORTCbits.RC0 = 0;
+"30
+[; ;Main.c: 30:         PORTCbits.RC0 = 0;
 [e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-"46
-[; ;Main.c: 46:         delay_ms(time);
+"31
+[; ;Main.c: 31:         delay_ms(time);
 [e ( _delay_ms (1 _time ]
-"47
-[; ;Main.c: 47:         PORTCbits.RC0 = 1;
+"32
+[; ;Main.c: 32:         PORTCbits.RC0 = 1;
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"48
-[; ;Main.c: 48:         delay_ms(time);
+"33
+[; ;Main.c: 33:         delay_ms(time);
 [e ( _delay_ms (1 _time ]
-"49
-[; ;Main.c: 49:     }
+"34
+[; ;Main.c: 34:     }
 }
 [e ++ _i -> 1 `i ]
 [e :U 291 ]
 [e $ < _i _note 288  ]
 [e :U 289 ]
 }
-"50
-[; ;Main.c: 50: }
+"35
+[; ;Main.c: 35: }
 [e :UE 287 ]
 }
-"52
-[; ;Main.c: 52: void playMelody() {
-[v _playMelody `(v ~T0 @X0 1 ef ]
-{
-[e :U _playMelody ]
-[f ]
-"53
-[; ;Main.c: 53:     int random = rand() % 2 + 1;
-[v _random `i ~T0 @X0 1 a ]
-[e = _random + % ( _rand ..  -> 2 `i -> 1 `i ]
-[v F2539 `i ~T0 @X0 -> 52 `i s ]
-[i F2539
-:U ..
-"54
-[; ;Main.c: 54:     int melody1[] = {440,440,493,440,293,277,440,440,493,440,329,293,440,440,440,369,293,277,493,392,392,369,293,329,293,440,440,493,440,293,277,440,440,493,440,329,293,440,440,440,369,293,277,293,277,493,392,392,369,293,329,293};
--> 440 `i
--> 440 `i
--> 493 `i
--> 440 `i
--> 293 `i
--> 277 `i
--> 440 `i
--> 440 `i
--> 493 `i
--> 440 `i
--> 329 `i
--> 293 `i
--> 440 `i
--> 440 `i
--> 440 `i
--> 369 `i
--> 293 `i
--> 277 `i
--> 493 `i
--> 392 `i
--> 392 `i
--> 369 `i
--> 293 `i
--> 329 `i
--> 293 `i
--> 440 `i
--> 440 `i
--> 493 `i
--> 440 `i
--> 293 `i
--> 277 `i
--> 440 `i
--> 440 `i
--> 493 `i
--> 440 `i
--> 329 `i
--> 293 `i
--> 440 `i
--> 440 `i
--> 440 `i
--> 369 `i
--> 293 `i
--> 277 `i
--> 293 `i
--> 277 `i
--> 493 `i
--> 392 `i
--> 392 `i
--> 369 `i
--> 293 `i
--> 329 `i
--> 293 `i
-..
-]
-[v _melody1 `i ~T0 @X0 -> 52 `i a ]
-[e = _melody1 F2539 ]
-[v F2541 `i ~T0 @X0 -> 48 `i s ]
-[i F2541
-:U ..
-"55
-[; ;Main.c: 55:     int melody2[] = {261,329,392,440,493,440,392,329,261,329,392,440,466,440,392,329,698,880,261,293,311,293,329,880,261,329,392,440,466,440,392,329,784,987,293,987,698,880,261,880,261,329,392,440,466,440,392,329};
--> 261 `i
--> 329 `i
--> 392 `i
--> 440 `i
--> 493 `i
--> 440 `i
--> 392 `i
--> 329 `i
--> 261 `i
--> 329 `i
--> 392 `i
--> 440 `i
--> 466 `i
--> 440 `i
--> 392 `i
--> 329 `i
--> 698 `i
--> 880 `i
--> 261 `i
--> 293 `i
--> 311 `i
--> 293 `i
--> 329 `i
--> 880 `i
--> 261 `i
--> 329 `i
--> 392 `i
--> 440 `i
--> 466 `i
--> 440 `i
--> 392 `i
--> 329 `i
--> 784 `i
--> 987 `i
--> 293 `i
--> 987 `i
--> 698 `i
--> 880 `i
--> 261 `i
--> 880 `i
--> 261 `i
--> 329 `i
--> 392 `i
--> 440 `i
--> 466 `i
--> 440 `i
--> 392 `i
--> 329 `i
-..
-]
-[v _melody2 `i ~T0 @X0 -> 48 `i a ]
-[e = _melody2 F2541 ]
-"56
-[; ;Main.c: 56:     if(random == 1) {
-[e $ ! == _random -> 1 `i 293  ]
-{
-"57
-[; ;Main.c: 57:         size_t n = sizeof(melody1) / sizeof(melody1[0]);
-[v _n `ui ~T0 @X0 1 a ]
-[e = _n / -> # _melody1 `ui -> # *U + &U _melody1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _melody1 `ui `ux `ui ]
-"58
-[; ;Main.c: 58:         for(int m = 0; m < n; m++) {
-{
-[v _m `i ~T0 @X0 1 a ]
-[e = _m -> 0 `i ]
-[e $U 297  ]
-[e :U 294 ]
-{
-"59
-[; ;Main.c: 59:             playTone(melody1[m]);
-[e ( _playTone (1 *U + &U _melody1 * -> -> _m `ui `ux -> -> # *U &U _melody1 `ui `ux ]
-"60
-[; ;Main.c: 60:             delay_ms(1000);
-[e ( _delay_ms (1 -> 1000 `i ]
-"61
-[; ;Main.c: 61:         }
-}
-[e ++ _m -> 1 `i ]
-[e :U 297 ]
-[e $ < -> _m `ui _n 294  ]
-[e :U 295 ]
-}
-"62
-[; ;Main.c: 62:     }
-}
-[e :U 293 ]
-"63
-[; ;Main.c: 63:     if(random == 2) {
-[e $ ! == _random -> 2 `i 298  ]
-{
-"64
-[; ;Main.c: 64:         size_t n = sizeof(melody2) / sizeof(melody2[0]);
-[v _n `ui ~T0 @X0 1 a ]
-[e = _n / -> # _melody2 `ui -> # *U + &U _melody2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _melody2 `ui `ux `ui ]
-"65
-[; ;Main.c: 65:         for(int m = 0; m < n; m++) {
-{
-[v _m `i ~T0 @X0 1 a ]
-[e = _m -> 0 `i ]
-[e $U 302  ]
-[e :U 299 ]
-{
-"66
-[; ;Main.c: 66:             playTone(melody2[m]);
-[e ( _playTone (1 *U + &U _melody2 * -> -> _m `ui `ux -> -> # *U &U _melody2 `ui `ux ]
-"67
-[; ;Main.c: 67:             delay_ms(1000);
-[e ( _delay_ms (1 -> 1000 `i ]
-"68
-[; ;Main.c: 68:         }
-}
-[e ++ _m -> 1 `i ]
-[e :U 302 ]
-[e $ < -> _m `ui _n 299  ]
-[e :U 300 ]
-}
-"69
-[; ;Main.c: 69:     }
-}
-[e :U 298 ]
-"71
-[; ;Main.c: 71: }
-[e :UE 292 ]
-}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"74
-[; ;Main.c: 74: void main(void) {
+"37
+[; ;Main.c: 37: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"77
-[; ;Main.c: 77:     TRISA = 0b11111111;
+"39
+[; ;Main.c: 39:     TRISA = 0b11111111;
 [e = _TRISA -> -> 255 `i `uc ]
-"78
-[; ;Main.c: 78:     TRISB = 0b11111111;
+"40
+[; ;Main.c: 40:     TRISB = 0b11111111;
 [e = _TRISB -> -> 255 `i `uc ]
-"81
-[; ;Main.c: 81:     TRISCbits.RC0 = 0;
+"41
+[; ;Main.c: 41:     TRISCbits.RC0 = 0;
 [e = . . _TRISCbits 1 0 -> -> 0 `i `uc ]
-"84
-[; ;Main.c: 84:     while(1) {
-[e :U 305 ]
+"43
+[; ;Main.c: 43:     while(1) {
+[e :U 294 ]
 {
-"85
-[; ;Main.c: 85:         __nop();
+"44
+[; ;Main.c: 44:         __nop();
 [e ( ___nop ..  ]
-"86
-[; ;Main.c: 86:         __nop();
+"45
+[; ;Main.c: 45:         __nop();
 [e ( ___nop ..  ]
-"89
-[; ;Main.c: 89:         if(PORTAbits.RA0 == 0){
-[e $ ! == -> . . _PORTAbits 0 0 `i -> 0 `i 307  ]
+"46
+[; ;Main.c: 46:         if(PORTAbits.RA0 == 0){
+[e $ ! == -> . . _PORTAbits 0 0 `i -> 0 `i 296  ]
 {
-"90
-[; ;Main.c: 90:             playTone(261);
+"47
+[; ;Main.c: 47:             playTone(261);
 [e ( _playTone (1 -> 261 `i ]
-"91
-[; ;Main.c: 91:         }
+"48
+[; ;Main.c: 48:         }
 }
-[e :U 307 ]
-"92
-[; ;Main.c: 92:         if(PORTAbits.RA1 == 0){
-[e $ ! == -> . . _PORTAbits 0 1 `i -> 0 `i 308  ]
+[e :U 296 ]
+"49
+[; ;Main.c: 49:         if(PORTAbits.RA1 == 0){
+[e $ ! == -> . . _PORTAbits 0 1 `i -> 0 `i 297  ]
 {
-"93
-[; ;Main.c: 93:             playTone(277);
+"50
+[; ;Main.c: 50:             playTone(277);
 [e ( _playTone (1 -> 277 `i ]
-"94
-[; ;Main.c: 94:         }
+"51
+[; ;Main.c: 51:         }
 }
-[e :U 308 ]
-"95
-[; ;Main.c: 95:         if(PORTAbits.RA2 == 0){
-[e $ ! == -> . . _PORTAbits 0 2 `i -> 0 `i 309  ]
+[e :U 297 ]
+"52
+[; ;Main.c: 52:         if(PORTAbits.RA2 == 0){
+[e $ ! == -> . . _PORTAbits 0 2 `i -> 0 `i 298  ]
 {
-"96
-[; ;Main.c: 96:             playTone(293);
+"53
+[; ;Main.c: 53:             playTone(293);
 [e ( _playTone (1 -> 293 `i ]
-"97
-[; ;Main.c: 97:         }
+"54
+[; ;Main.c: 54:         }
 }
-[e :U 309 ]
-"98
-[; ;Main.c: 98:         if(PORTAbits.RA3 == 0){
-[e $ ! == -> . . _PORTAbits 0 3 `i -> 0 `i 310  ]
+[e :U 298 ]
+"55
+[; ;Main.c: 55:         if(PORTAbits.RA3 == 0){
+[e $ ! == -> . . _PORTAbits 0 3 `i -> 0 `i 299  ]
 {
-"99
-[; ;Main.c: 99:             playTone(311);
+"56
+[; ;Main.c: 56:             playTone(311);
 [e ( _playTone (1 -> 311 `i ]
-"100
-[; ;Main.c: 100:         }
+"57
+[; ;Main.c: 57:         }
 }
-[e :U 310 ]
-"101
-[; ;Main.c: 101:         if(PORTAbits.RA4 == 0){
-[e $ ! == -> . . _PORTAbits 0 4 `i -> 0 `i 311  ]
+[e :U 299 ]
+"58
+[; ;Main.c: 58:         if(PORTAbits.RA4 == 0){
+[e $ ! == -> . . _PORTAbits 0 4 `i -> 0 `i 300  ]
 {
-"102
-[; ;Main.c: 102:             playTone(329);
+"59
+[; ;Main.c: 59:             playTone(329);
 [e ( _playTone (1 -> 329 `i ]
-"103
-[; ;Main.c: 103:         }
+"60
+[; ;Main.c: 60:         }
 }
-[e :U 311 ]
-"104
-[; ;Main.c: 104:         if(PORTAbits.RA5 == 0){
-[e $ ! == -> . . _PORTAbits 0 5 `i -> 0 `i 312  ]
+[e :U 300 ]
+"61
+[; ;Main.c: 61:         if(PORTAbits.RA5 == 0){
+[e $ ! == -> . . _PORTAbits 0 5 `i -> 0 `i 301  ]
 {
-"105
-[; ;Main.c: 105:             playTone(349);
+"62
+[; ;Main.c: 62:             playTone(349);
 [e ( _playTone (1 -> 349 `i ]
-"106
-[; ;Main.c: 106:         }
+"63
+[; ;Main.c: 63:         }
 }
-[e :U 312 ]
-"107
-[; ;Main.c: 107:         if(PORTAbits.RA6 == 0){
-[e $ ! == -> . . _PORTAbits 0 6 `i -> 0 `i 313  ]
+[e :U 301 ]
+"64
+[; ;Main.c: 64:         if(PORTAbits.RA6 == 0){
+[e $ ! == -> . . _PORTAbits 0 6 `i -> 0 `i 302  ]
 {
-"108
-[; ;Main.c: 108:             playTone(392);
+"65
+[; ;Main.c: 65:             playTone(392);
 [e ( _playTone (1 -> 392 `i ]
-"109
-[; ;Main.c: 109:         }
+"66
+[; ;Main.c: 66:         }
 }
-[e :U 313 ]
-"110
-[; ;Main.c: 110:         if(PORTAbits.RA7 == 0){
-[e $ ! == -> . . _PORTAbits 0 7 `i -> 0 `i 314  ]
+[e :U 302 ]
+"67
+[; ;Main.c: 67:         if(PORTAbits.RA7 == 0){
+[e $ ! == -> . . _PORTAbits 0 7 `i -> 0 `i 303  ]
 {
-"111
-[; ;Main.c: 111:             playTone(440);
+"68
+[; ;Main.c: 68:             playTone(440);
 [e ( _playTone (1 -> 440 `i ]
-"112
-[; ;Main.c: 112:         }
+"69
+[; ;Main.c: 69:         }
 }
-[e :U 314 ]
-"113
-[; ;Main.c: 113:         if(PORTBbits.RB0 == 0){
-[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 315  ]
+[e :U 303 ]
+"70
+[; ;Main.c: 70:         if(PORTBbits.RB0 == 0){
+[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 304  ]
 {
-"114
-[; ;Main.c: 114:             playTone(493);
+"71
+[; ;Main.c: 71:             playTone(493);
 [e ( _playTone (1 -> 493 `i ]
-"115
-[; ;Main.c: 115:         }
-}
-[e :U 315 ]
-"116
-[; ;Main.c: 116:         if(PORTBbits.RB1 == 0){
-[e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 316  ]
-{
-"117
-[; ;Main.c: 117:             playTone(523);
-[e ( _playTone (1 -> 523 `i ]
-"118
-[; ;Main.c: 118:         }
-}
-[e :U 316 ]
-"119
-[; ;Main.c: 119:         if(PORTBbits.RB2 == 0){
-[e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 317  ]
-{
-"120
-[; ;Main.c: 120:             playTone(587);
-[e ( _playTone (1 -> 587 `i ]
-"121
-[; ;Main.c: 121:         }
-}
-[e :U 317 ]
-"122
-[; ;Main.c: 122:         if(PORTBbits.RB3 == 0){
-[e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 318  ]
-{
-"123
-[; ;Main.c: 123:             playTone(659);
-[e ( _playTone (1 -> 659 `i ]
-"124
-[; ;Main.c: 124:         }
-}
-[e :U 318 ]
-"125
-[; ;Main.c: 125:         if(PORTBbits.RB4 == 0){
-[e $ ! == -> . . _PORTBbits 0 4 `i -> 0 `i 319  ]
-{
-"126
-[; ;Main.c: 126:             playTone(698);
-[e ( _playTone (1 -> 698 `i ]
-"127
-[; ;Main.c: 127:         }
-}
-[e :U 319 ]
-"128
-[; ;Main.c: 128:         if(PORTBbits.RB5 == 0){
-[e $ ! == -> . . _PORTBbits 0 5 `i -> 0 `i 320  ]
-{
-"129
-[; ;Main.c: 129:             playTone(784);
-[e ( _playTone (1 -> 784 `i ]
-"130
-[; ;Main.c: 130:         }
-}
-[e :U 320 ]
-"131
-[; ;Main.c: 131:         if(PORTBbits.RB6){
-[e $ ! != -> . . _PORTBbits 0 6 `i -> 0 `i 321  ]
-{
-"132
-[; ;Main.c: 132:             playTone(880);
-[e ( _playTone (1 -> 880 `i ]
-"133
-[; ;Main.c: 133:         }
-}
-[e :U 321 ]
-"134
-[; ;Main.c: 134:         if(PORTBbits.RB7){
-[e $ ! != -> . . _PORTBbits 0 7 `i -> 0 `i 322  ]
-{
-"135
-[; ;Main.c: 135:             playTone(987);
-[e ( _playTone (1 -> 987 `i ]
-"136
-[; ;Main.c: 136:         }
-}
-[e :U 322 ]
-"137
-[; ;Main.c: 137:         if(PORTCbits.RC1){
-[e $ ! != -> . . _PORTCbits 0 1 `i -> 0 `i 323  ]
-{
-"138
-[; ;Main.c: 138:             playMelody();
-[e ( _playMelody ..  ]
-"139
-[; ;Main.c: 139:         }
-}
-[e :U 323 ]
-"140
-[; ;Main.c: 140:     };
+"72
+[; ;Main.c: 72:         }
 }
 [e :U 304 ]
-[e $U 305  ]
+"73
+[; ;Main.c: 73:         if(PORTBbits.RB1 == 0){
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 305  ]
+{
+"74
+[; ;Main.c: 74:             playTone(523);
+[e ( _playTone (1 -> 523 `i ]
+"75
+[; ;Main.c: 75:         }
+}
+[e :U 305 ]
+"76
+[; ;Main.c: 76:         if(PORTBbits.RB2 == 0){
+[e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 306  ]
+{
+"77
+[; ;Main.c: 77:             playTone(587);
+[e ( _playTone (1 -> 587 `i ]
+"78
+[; ;Main.c: 78:         }
+}
 [e :U 306 ]
-"141
-[; ;Main.c: 141:     return;
-[e $UE 303  ]
-"142
-[; ;Main.c: 142: }
-[e :UE 303 ]
+"79
+[; ;Main.c: 79:         if(PORTBbits.RB3 == 0){
+[e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 307  ]
+{
+"80
+[; ;Main.c: 80:             playTone(659);
+[e ( _playTone (1 -> 659 `i ]
+"81
+[; ;Main.c: 81:         }
+}
+[e :U 307 ]
+"82
+[; ;Main.c: 82:         if(PORTBbits.RB4 == 0){
+[e $ ! == -> . . _PORTBbits 0 4 `i -> 0 `i 308  ]
+{
+"83
+[; ;Main.c: 83:             playTone(698);
+[e ( _playTone (1 -> 698 `i ]
+"84
+[; ;Main.c: 84:         }
+}
+[e :U 308 ]
+"85
+[; ;Main.c: 85:         if(PORTBbits.RB5 == 0){
+[e $ ! == -> . . _PORTBbits 0 5 `i -> 0 `i 309  ]
+{
+"86
+[; ;Main.c: 86:             playTone(784);
+[e ( _playTone (1 -> 784 `i ]
+"87
+[; ;Main.c: 87:         }
+}
+[e :U 309 ]
+"88
+[; ;Main.c: 88:         if(PORTBbits.RB6){
+[e $ ! != -> . . _PORTBbits 0 6 `i -> 0 `i 310  ]
+{
+"89
+[; ;Main.c: 89:             playTone(880);
+[e ( _playTone (1 -> 880 `i ]
+"90
+[; ;Main.c: 90:         }
+}
+[e :U 310 ]
+"91
+[; ;Main.c: 91:         if(PORTBbits.RB7){
+[e $ ! != -> . . _PORTBbits 0 7 `i -> 0 `i 311  ]
+{
+"92
+[; ;Main.c: 92:             playTone(987);
+[e ( _playTone (1 -> 987 `i ]
+"93
+[; ;Main.c: 93:         }
+}
+[e :U 311 ]
+"94
+[; ;Main.c: 94:     };
+}
+[e :U 293 ]
+[e $U 294  ]
+[e :U 295 ]
+"95
+[; ;Main.c: 95:     return;
+[e $UE 292  ]
+"96
+[; ;Main.c: 96: }
+[e :UE 292 ]
 }

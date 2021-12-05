@@ -34,6 +34,7 @@ Microcontroller: PIC18F4520
 #define pinInput14 PORTBbits.RB5
 #define pinInput15 PORTBbits.RB6
 #define pinInput16 PORTBbits.RB7
+#define pinMelody PORTCbits.RC1
 
 // Speaker
 // Pin is defined as digital output in main.c
@@ -42,9 +43,9 @@ Microcontroller: PIC18F4520
 // Define every note with its Hz number.
 // The amount of Hz is used to create the tone.
 #define c 261
-#define cSharp 277
+#define cis 277
 #define d 293
-#define dSharp 311
+#define dis 311
 #define e 329
 #define f 349
 #define g 392
@@ -57,7 +58,10 @@ Microcontroller: PIC18F4520
 #define G 784
 #define A1 880
 #define H 987
-
+//Needed for melody not used by any button
+#define fis 369
+#define es 311
+#define b 466
 // Further standard configuration.
 // CONFIG1H
 #pragma config OSC = HSPLL      // Oscillator Selection bits (HS oscillator, PLL enabled (Clock Frequency = 4 x FOSC1))

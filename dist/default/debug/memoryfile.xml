@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\00_Piano.X.production.hex">
+  <executable name="dist/default/debug\00_Piano.X.debug.hex">
     <memory name="program">
       <units>bytes</units>
       <length>32768</length>
-      <used>2438</used>
-      <free>30330</free>
+      <used>1758</used>
+      <free>31010</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>1536</length>
-      <used>465</used>
-      <free>1071</free>
+      <used>51</used>
+      <free>1485</free>
     </memory>
   </executable>
 </project>

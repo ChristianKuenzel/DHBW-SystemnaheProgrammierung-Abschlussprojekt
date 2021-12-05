@@ -1,10 +1,10 @@
 /*
-Copyright 2021, DHBW Lörrach
+Copyright 2021, DHBW Loerrach
 Systemnahe Pogrammierung, Abschlussprojekt Piano
 
 Group #8:
-Leonard Kipar <Mail> <https://github.com/leonard-kipar>
-Christian Künzel <chriskuenzel@web.de> <https://github.com/ChristianKuenzel>
+Leonard Kipar <leonard.kipar@gmail.com> <https://github.com/leonard-kipar>
+Christian Kuenzel <chriskuenzel@web.de> <https://github.com/ChristianKuenzel>
 
 GitHub: <https://github.com/ChristianKuenzel/DHBW-SystemnaheProgrammierung-Abschlussprojekt>
 
@@ -37,8 +37,7 @@ void delay_ms(int time) {
 }
 
 // Create a given tone by activating the output to the speaker for a given amount of time.
-void playTone(int note)
-{
+void playTone(int note) {
   // Calculate the time needed to create the tone.
   int time = calculateTime(note);
   for(int i=0; i<note; i++)
@@ -47,6 +46,26 @@ void playTone(int note)
         delay_ms(time);
         pinOutput = 1;
         delay_ms(time);
+    }
+}
+
+void playMelody() {
+    int random = rand() % 2 + 1;
+    int melody1[] = {a,a,h,a,d,cis,a,a,h,a,e,d,a,a,a,fis,d,cis,h,g,g,fis,d,e,d,a,a,h,a,d,cis,a,a,h,a,e,d,a,a,a,fis,d,cis,d,cis,h,g,g,fis,d,e,d};
+    int melody2[] = {c,e,g,a,h,a,g,e,c,e,g,a,b,a,g,e,F,A1,c,d,es,d,e,A1,c,e,g,a,b,a,g,e,G,H,d,H,F,A1,c,A1,c,e,g,a,b,a,g,e};
+    if(random == 1) {
+        size_t n = sizeof(melody1) / sizeof(melody1[0]);
+        for(int m = 0; m < n; m++) {
+            playTone(melody1[m]);
+            delay_ms(1000);
+        }
+    }
+    if(random == 2) {
+        size_t n = sizeof(melody2) / sizeof(melody2[0]);
+        for(int m = 0; m < n; m++) {
+            playTone(melody2[m]);
+            delay_ms(1000);
+        }
     }
 }
 
@@ -70,13 +89,13 @@ void main(void) {
             playTone(c);
         }
         if(pinInput2 == 0){
-            playTone(cSharp);
+            playTone(cis);
         }
         if(pinInput3 == 0){
             playTone(d);
         }
         if(pinInput4 == 0){
-            playTone(dSharp);
+            playTone(dis);
         }
         if(pinInput5 == 0){
             playTone(e);
@@ -113,6 +132,9 @@ void main(void) {
         }
         if(pinInput16){
             playTone(H);
+        }
+        if(pinMelody){
+            playMelody();
         }
     };
     return;
