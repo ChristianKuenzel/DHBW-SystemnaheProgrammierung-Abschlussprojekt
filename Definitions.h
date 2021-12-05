@@ -1,10 +1,23 @@
+/*
+Copyright 2021, DHBW Lörrach
+Systemnahe Pogrammierung, Abschlussprojekt Piano
 
-// PIC18F4520 Configuration Bit Settings
+Group #8:
+Leonard Kipar <Mail> <https://github.com/leonard-kipar>
+Christian Künzel <chriskuenzel@web.de> <https://github.com/ChristianKuenzel>
 
-// 'C' source line config statements
+GitHub: <https://github.com/ChristianKuenzel/DHBW-SystemnaheProgrammierung-Abschlussprojekt>
 
+MPLab & Prometheus
+Microcontroller: PIC18F4520
+*/
+
+// Configuration Settings
 #define _XTAL_FREQ 4000000
-//Buttons
+
+// Buttons
+// Pins are defined as digital input in main.c
+// For each button pressed is a seperat pin available.
 #define pinInput1 PORTAbits.RA0
 #define pinInput2 PORTAbits.RA1
 #define pinInput3 PORTAbits.RA2
@@ -21,9 +34,13 @@
 #define pinInput14 PORTBbits.RB5
 #define pinInput15 PORTBbits.RB6
 #define pinInput16 PORTBbits.RB7
-//Output
+
+// Speaker
+// Pin is defined as digital output in main.c
 #define pinOutput PORTCbits.RC0
-//Notes
+
+// Define every note with its Hz number.
+// The amount of Hz is used to create the tone.
 #define c 261
 #define cSharp 277
 #define d 293
@@ -41,6 +58,7 @@
 #define A1 880
 #define H 987
 
+// Further standard configuration.
 // CONFIG1H
 #pragma config OSC = HSPLL      // Oscillator Selection bits (HS oscillator, PLL enabled (Clock Frequency = 4 x FOSC1))
 #pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enable bit (Fail-Safe Clock Monitor disabled)
@@ -100,5 +118,3 @@
 // Use project enums instead of #define for ON and OFF.
 
 #include <xc.h>
-
-
