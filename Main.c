@@ -49,10 +49,18 @@ void playTone(int note) {
     }
 }
 
+// Play a random melody out of 2 by playing tones sequently out of a fixed array.
 void playMelody() {
+    // Choose random melody.
     int random = rand() % 2 + 1;
+    
+    // Melody
+    // Happy Birthday.
     int melody1[] = {a,a,h,a,d,cis,a,a,h,a,e,d,a,a,a,fis,d,cis,h,g,g,fis,d,e,d,a,a,h,a,d,cis,a,a,h,a,e,d,a,a,a,fis,d,cis,d,cis,h,g,g,fis,d,e,d};
+    // Boogi Woogi.
     int melody2[] = {c,e,g,a,h,a,g,e,c,e,g,a,b,a,g,e,F,A1,c,d,es,d,e,A1,c,e,g,a,b,a,g,e,G,H,d,H,F,A1,c,A1,c,e,g,a,b,a,g,e};
+    
+    // Play chosen melody.
     if(random == 1) {
         size_t n = sizeof(melody1) / sizeof(melody1[0]);
         for(int m = 0; m < n; m++) {
@@ -60,6 +68,7 @@ void playMelody() {
             delay_ms(1000);
         }
     }
+    
     if(random == 2) {
         size_t n = sizeof(melody2) / sizeof(melody2[0]);
         for(int m = 0; m < n; m++) {
@@ -133,6 +142,7 @@ void main(void) {
         if(pinInput16){
             playTone(H);
         }
+        // Check if pin got activated. Then play melody.
         if(pinMelody){
             playMelody();
         }
