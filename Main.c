@@ -81,7 +81,7 @@ void playTone(int note) {
 
 // Main function.
 void main(void) {
-    // Set APins, BPins and CPin.
+    // Set DPins, BPins and CPin.
     // Inputs.
     TRISD = 0b11111111;
     TRISB = 0b11111111;
