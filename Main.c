@@ -83,7 +83,7 @@ void playMelody() {
 void main(void) {
     // Set APins, BPins and CPin.
     // Inputs.
-    TRISA = 0b11111111;
+    TRISD = 0b11111111;
     TRISB = 0b11111111;
     
     // Ouput
