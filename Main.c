@@ -8,7 +8,7 @@ Christian Kuenzel <chriskuenzel@web.de> <https://github.com/ChristianKuenzel>
 
 GitHub: <https://github.com/ChristianKuenzel/DHBW-SystemnaheProgrammierung-Abschlussprojekt>
 
-MPLab & Prometheus
+MPLab & Proteus
 Microcontroller: PIC18F4520
 */
 
@@ -51,13 +51,10 @@ void playTone(int note) {
     }
 }
 
-<<<<<<< HEAD
 /*void playMelody() {
-=======
 // Play a random melody out of 2 by playing tones sequently out of a fixed array.
 void playMelody() {
     // Choose random melody.
->>>>>>> b05061de49f89cc82a7df8c0d3aed0d9fe73be18
     int random = rand() % 2 + 1;
     
     // Melody
@@ -159,12 +156,9 @@ void main(void) {
             playTone(H);
             Nop();
         }
-<<<<<<< HEAD
         /*if(pinMelody == 1){
-=======
         // Check if pin got activated. Then play melody.
         if(pinMelody){
->>>>>>> b05061de49f89cc82a7df8c0d3aed0d9fe73be18
             playMelody();
             Nop();
         }*/
