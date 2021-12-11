@@ -35,13 +35,13 @@
 [v ___omul __omul `(uo  1 e 8 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"20 C:\Users\leona\MPLABXProjects\00_Piano.X\Main.c
+"22 C:\Users\leona\MPLABXProjects\00_Piano.X\Main.c
 [v _calculateTime calculateTime `(i  1 e 2 0 ]
 "33
 [v _delay_ms delay_ms `(v  1 e 1 0 ]
-"40
+"41
 [v _playTone playTone `(v  1 e 1 0 ]
-"52
+"53
 [v _playMelody playMelody `(v  1 e 1 0 ]
 "74
 [v _main main `(v  1 e 1 0 ]
@@ -187,30 +187,36 @@
 [v _TRISCbits TRISCbits `VES131  1 e 1 @3988 ]
 "4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\rand.c
 [v _seed seed `ul  1 s 4 seed ]
-"74 C:\Users\leona\MPLABXProjects\00_Piano.X\Main.c
+"20 C:\Users\leona\MPLABXProjects\00_Piano.X\Main.c
+[v _n n `f  1 e 4 0 ]
+"21
+[v _x x `i  1 e 2 0 ]
+"40
+[v _time time `i  1 e 2 0 ]
+"74
 [v _main main `(v  1 e 1 0 ]
 {
-"142
+"160
 } 0
-"52
+"53
 [v _playMelody playMelody `(v  1 e 1 0 ]
 {
-"65
+"66
 [v playMelody@m_366 m `i  1 a 2 208 ]
-"58
+"59
 [v playMelody@m m `i  1 a 2 206 ]
-"64
+"65
 [v playMelody@n_365 n `ui  1 a 2 202 ]
-"57
+"58
 [v playMelody@n n `ui  1 a 2 200 ]
-"54
-[v playMelody@melody1 melody1 `[52]i  1 a 104 0 ]
 "55
+[v playMelody@melody1 melody1 `[52]i  1 a 104 0 ]
+"56
 [v playMelody@melody2 melody2 `[48]i  1 a 96 104 ]
-"53
+"54
 [v playMelody@random random `i  1 a 2 204 ]
 [v playMelody@F2539 F2539 `[52]i  1 s 104 F2539 ]
-"54
+"55
 [v playMelody@F2541 F2541 `[48]i  1 s 96 F2541 ]
 "71
 } 0
@@ -219,16 +225,14 @@
 {
 "15
 } 0
-"40 C:\Users\leona\MPLABXProjects\00_Piano.X\Main.c
+"41 C:\Users\leona\MPLABXProjects\00_Piano.X\Main.c
 [v _playTone playTone `(v  1 e 1 0 ]
 {
-"43
-[v playTone@i i `i  1 a 2 47 ]
-"42
-[v playTone@time time `i  1 a 2 49 ]
-"40
-[v playTone@note note `i  1 p 2 44 ]
-"50
+"44
+[v playTone@i i `i  1 a 2 41 ]
+"41
+[v playTone@note note `i  1 p 2 38 ]
+"51
 } 0
 "33
 [v _delay_ms delay_ms `(v  1 e 1 0 ]
@@ -239,14 +243,9 @@
 [v delay_ms@time time `i  1 p 2 0 ]
 "37
 } 0
-"20
+"22
 [v _calculateTime calculateTime `(i  1 e 2 0 ]
 {
-"22
-[v calculateTime@n n `f  1 a 4 36 ]
-"26
-[v calculateTime@x x `i  1 a 2 40 ]
-"20
 [v calculateTime@note note `i  1 p 2 34 ]
 "29
 } 0

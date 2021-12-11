@@ -609,21 +609,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4520.h: 7001: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "20 Main.c
-[; ;Main.c: 20: int calculateTime(int note) {
+[; ;Main.c: 20: float n;
+[v _n `f ~T0 @X0 1 e ]
+"21
+[; ;Main.c: 21: int x;
+[v _x `i ~T0 @X0 1 e ]
+"22
+[; ;Main.c: 22: int calculateTime(int note) {
 [v _calculateTime `(i ~T0 @X0 1 ef1`i ]
 {
 [e :U _calculateTime ]
 [v _note `i ~T0 @X0 1 r1 ]
 [f ]
-"22
-[; ;Main.c: 22:     float n;
-[v _n `f ~T0 @X0 1 a ]
-"23
-[; ;Main.c: 23:     n = ((1/note)/2)*1000000;
+"24
+[; ;Main.c: 24:     n = ( ( ( 1 / note ) / 2 ) * 1000000 );
 [e = _n -> * -> / / -> 1 `i _note -> 2 `i `l -> 1000000 `l `f ]
-"26
-[; ;Main.c: 26:     int x;
-[v _x `i ~T0 @X0 1 a ]
 "27
 [; ;Main.c: 27:     x = (int)n;
 [e = _x -> _n `i ]
@@ -666,65 +666,67 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 282 ]
 }
 "40
-[; ;Main.c: 40: void playTone(int note) {
+[; ;Main.c: 40: int time;
+[v _time `i ~T0 @X0 1 e ]
+"41
+[; ;Main.c: 41: void playTone(int note) {
 [v _playTone `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _playTone ]
 [v _note `i ~T0 @X0 1 r1 ]
 [f ]
-"42
-[; ;Main.c: 42:   int time = calculateTime(note);
-[v _time `i ~T0 @X0 1 a ]
-[e = _time ( _calculateTime (1 _note ]
 "43
-[; ;Main.c: 43:   for(int i=0; i<note; i++)
+[; ;Main.c: 43:   time = calculateTime(note);
+[e = _time ( _calculateTime (1 _note ]
+"44
+[; ;Main.c: 44:   for(int i=0; i<note; i++)
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $U 291  ]
 [e :U 288 ]
-"44
-[; ;Main.c: 44:     {
-{
 "45
-[; ;Main.c: 45:         PORTCbits.RC0 = 0;
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
+[; ;Main.c: 45:     {
+{
 "46
-[; ;Main.c: 46:         delay_ms(time);
-[e ( _delay_ms (1 _time ]
+[; ;Main.c: 46:         PORTCbits.RC0 = 0;
+[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
 "47
-[; ;Main.c: 47:         PORTCbits.RC0 = 1;
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"48
-[; ;Main.c: 48:         delay_ms(time);
+[; ;Main.c: 47:         delay_ms(time);
 [e ( _delay_ms (1 _time ]
+"48
+[; ;Main.c: 48:         PORTCbits.RC0 = 1;
+[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
 "49
-[; ;Main.c: 49:     }
+[; ;Main.c: 49:         delay_ms(time);
+[e ( _delay_ms (1 _time ]
+"50
+[; ;Main.c: 50:     }
 }
 [e ++ _i -> 1 `i ]
 [e :U 291 ]
 [e $ < _i _note 288  ]
 [e :U 289 ]
 }
-"50
-[; ;Main.c: 50: }
+"51
+[; ;Main.c: 51: }
 [e :UE 287 ]
 }
-"52
-[; ;Main.c: 52: void playMelody() {
+"53
+[; ;Main.c: 53: void playMelody() {
 [v _playMelody `(v ~T0 @X0 1 ef ]
 {
 [e :U _playMelody ]
 [f ]
-"53
-[; ;Main.c: 53:     int random = rand() % 2 + 1;
+"54
+[; ;Main.c: 54:     int random = rand() % 2 + 1;
 [v _random `i ~T0 @X0 1 a ]
 [e = _random + % ( _rand ..  -> 2 `i -> 1 `i ]
 [v F2539 `i ~T0 @X0 -> 52 `i s ]
 [i F2539
 :U ..
-"54
-[; ;Main.c: 54:     int melody1[] = {440,440,493,440,293,277,440,440,493,440,329,293,440,440,440,369,293,277,493,392,392,369,293,329,293,440,440,493,440,293,277,440,440,493,440,329,293,440,440,440,369,293,277,293,277,493,392,392,369,293,329,293};
+"55
+[; ;Main.c: 55:     int melody1[] = {440,440,493,440,293,277,440,440,493,440,329,293,440,440,440,369,293,277,493,392,392,369,293,329,293,440,440,493,440,293,277,440,440,493,440,329,293,440,440,440,369,293,277,293,277,493,392,392,369,293,329,293};
 -> 440 `i
 -> 440 `i
 -> 493 `i
@@ -784,8 +786,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v F2541 `i ~T0 @X0 -> 48 `i s ]
 [i F2541
 :U ..
-"55
-[; ;Main.c: 55:     int melody2[] = {261,329,392,440,493,440,392,329,261,329,392,440,466,440,392,329,698,880,261,293,311,293,329,880,261,329,392,440,466,440,392,329,784,987,293,987,698,880,261,880,261,329,392,440,466,440,392,329};
+"56
+[; ;Main.c: 56:     int melody2[] = {261,329,392,440,493,440,392,329,261,329,392,440,466,440,392,329,698,880,261,293,311,293,329,880,261,329,392,440,466,440,392,329,784,987,293,987,698,880,261,880,261,329,392,440,466,440,392,329};
 -> 261 `i
 -> 329 `i
 -> 392 `i
@@ -838,72 +840,72 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 [v _melody2 `i ~T0 @X0 -> 48 `i a ]
 [e = _melody2 F2541 ]
-"56
-[; ;Main.c: 56:     if(random == 1) {
+"57
+[; ;Main.c: 57:     if(random == 1) {
 [e $ ! == _random -> 1 `i 293  ]
 {
-"57
-[; ;Main.c: 57:         size_t n = sizeof(melody1) / sizeof(melody1[0]);
+"58
+[; ;Main.c: 58:         size_t n = sizeof(melody1) / sizeof(melody1[0]);
 [v _n `ui ~T0 @X0 1 a ]
 [e = _n / -> # _melody1 `ui -> # *U + &U _melody1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _melody1 `ui `ux `ui ]
-"58
-[; ;Main.c: 58:         for(int m = 0; m < n; m++) {
+"59
+[; ;Main.c: 59:         for(int m = 0; m < n; m++) {
 {
 [v _m `i ~T0 @X0 1 a ]
 [e = _m -> 0 `i ]
 [e $U 297  ]
 [e :U 294 ]
 {
-"59
-[; ;Main.c: 59:             playTone(melody1[m]);
-[e ( _playTone (1 *U + &U _melody1 * -> -> _m `ui `ux -> -> # *U &U _melody1 `ui `ux ]
 "60
-[; ;Main.c: 60:             delay_ms(1000);
-[e ( _delay_ms (1 -> 1000 `i ]
+[; ;Main.c: 60:             playTone(melody1[m]);
+[e ( _playTone (1 *U + &U _melody1 * -> -> _m `ui `ux -> -> # *U &U _melody1 `ui `ux ]
 "61
-[; ;Main.c: 61:         }
+[; ;Main.c: 61:             delay_ms(1000);
+[e ( _delay_ms (1 -> 1000 `i ]
+"62
+[; ;Main.c: 62:         }
 }
 [e ++ _m -> 1 `i ]
 [e :U 297 ]
 [e $ < -> _m `ui _n 294  ]
 [e :U 295 ]
 }
-"62
-[; ;Main.c: 62:     }
+"63
+[; ;Main.c: 63:     }
 }
 [e :U 293 ]
-"63
-[; ;Main.c: 63:     if(random == 2) {
+"64
+[; ;Main.c: 64:     if(random == 2) {
 [e $ ! == _random -> 2 `i 298  ]
 {
-"64
-[; ;Main.c: 64:         size_t n = sizeof(melody2) / sizeof(melody2[0]);
+"65
+[; ;Main.c: 65:         size_t n = sizeof(melody2) / sizeof(melody2[0]);
 [v _n `ui ~T0 @X0 1 a ]
 [e = _n / -> # _melody2 `ui -> # *U + &U _melody2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _melody2 `ui `ux `ui ]
-"65
-[; ;Main.c: 65:         for(int m = 0; m < n; m++) {
+"66
+[; ;Main.c: 66:         for(int m = 0; m < n; m++) {
 {
 [v _m `i ~T0 @X0 1 a ]
 [e = _m -> 0 `i ]
 [e $U 302  ]
 [e :U 299 ]
 {
-"66
-[; ;Main.c: 66:             playTone(melody2[m]);
-[e ( _playTone (1 *U + &U _melody2 * -> -> _m `ui `ux -> -> # *U &U _melody2 `ui `ux ]
 "67
-[; ;Main.c: 67:             delay_ms(1000);
-[e ( _delay_ms (1 -> 1000 `i ]
+[; ;Main.c: 67:             playTone(melody2[m]);
+[e ( _playTone (1 *U + &U _melody2 * -> -> _m `ui `ux -> -> # *U &U _melody2 `ui `ux ]
 "68
-[; ;Main.c: 68:         }
+[; ;Main.c: 68:             delay_ms(1000);
+[e ( _delay_ms (1 -> 1000 `i ]
+"69
+[; ;Main.c: 69:         }
 }
 [e ++ _m -> 1 `i ]
 [e :U 302 ]
 [e $ < -> _m `ui _n 299  ]
 [e :U 300 ]
 }
-"69
-[; ;Main.c: 69:     }
+"70
+[; ;Main.c: 70:     }
 }
 [e :U 298 ]
 "71
@@ -936,13 +938,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "86
 [; ;Main.c: 86:         __nop();
 [e ( ___nop ..  ]
-"89
-[; ;Main.c: 89:         if(PORTAbits.RA0 == 0){
+"88
+[; ;Main.c: 88:         if(PORTAbits.RA0 == 0){
 [e $ ! == -> . . _PORTAbits 0 0 `i -> 0 `i 307  ]
 {
-"90
-[; ;Main.c: 90:             playTone(261);
+"89
+[; ;Main.c: 89:             playTone(261);
 [e ( _playTone (1 -> 261 `i ]
+"90
+[; ;Main.c: 90:             __nop();
+[e ( ___nop ..  ]
 "91
 [; ;Main.c: 91:         }
 }
@@ -955,184 +960,238 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Main.c: 93:             playTone(277);
 [e ( _playTone (1 -> 277 `i ]
 "94
-[; ;Main.c: 94:         }
+[; ;Main.c: 94:             __nop();
+[e ( ___nop ..  ]
+"95
+[; ;Main.c: 95:         }
 }
 [e :U 308 ]
-"95
-[; ;Main.c: 95:         if(PORTAbits.RA2 == 0){
+"96
+[; ;Main.c: 96:         if(PORTAbits.RA2 == 0){
 [e $ ! == -> . . _PORTAbits 0 2 `i -> 0 `i 309  ]
 {
-"96
-[; ;Main.c: 96:             playTone(293);
-[e ( _playTone (1 -> 293 `i ]
 "97
-[; ;Main.c: 97:         }
+[; ;Main.c: 97:             playTone(293);
+[e ( _playTone (1 -> 293 `i ]
+"98
+[; ;Main.c: 98:             __nop();
+[e ( ___nop ..  ]
+"99
+[; ;Main.c: 99:         }
 }
 [e :U 309 ]
-"98
-[; ;Main.c: 98:         if(PORTAbits.RA3 == 0){
+"100
+[; ;Main.c: 100:         if(PORTAbits.RA3 == 0){
 [e $ ! == -> . . _PORTAbits 0 3 `i -> 0 `i 310  ]
 {
-"99
-[; ;Main.c: 99:             playTone(311);
-[e ( _playTone (1 -> 311 `i ]
-"100
-[; ;Main.c: 100:         }
-}
-[e :U 310 ]
 "101
-[; ;Main.c: 101:         if(PORTAbits.RA4 == 0){
-[e $ ! == -> . . _PORTAbits 0 4 `i -> 0 `i 311  ]
-{
+[; ;Main.c: 101:             playTone(311);
+[e ( _playTone (1 -> 311 `i ]
 "102
-[; ;Main.c: 102:             playTone(329);
-[e ( _playTone (1 -> 329 `i ]
+[; ;Main.c: 102:             __nop();
+[e ( ___nop ..  ]
 "103
 [; ;Main.c: 103:         }
 }
-[e :U 311 ]
+[e :U 310 ]
 "104
-[; ;Main.c: 104:         if(PORTAbits.RA5 == 0){
-[e $ ! == -> . . _PORTAbits 0 5 `i -> 0 `i 312  ]
+[; ;Main.c: 104:         if(PORTAbits.RA4 == 0){
+[e $ ! == -> . . _PORTAbits 0 4 `i -> 0 `i 311  ]
 {
 "105
-[; ;Main.c: 105:             playTone(349);
-[e ( _playTone (1 -> 349 `i ]
+[; ;Main.c: 105:             playTone(329);
+[e ( _playTone (1 -> 329 `i ]
 "106
-[; ;Main.c: 106:         }
+[; ;Main.c: 106:             __nop();
+[e ( ___nop ..  ]
+"107
+[; ;Main.c: 107:         }
+}
+[e :U 311 ]
+"108
+[; ;Main.c: 108:         if(PORTAbits.RA5 == 0){
+[e $ ! == -> . . _PORTAbits 0 5 `i -> 0 `i 312  ]
+{
+"109
+[; ;Main.c: 109:             playTone(349);
+[e ( _playTone (1 -> 349 `i ]
+"110
+[; ;Main.c: 110:             __nop();
+[e ( ___nop ..  ]
+"111
+[; ;Main.c: 111:         }
 }
 [e :U 312 ]
-"107
-[; ;Main.c: 107:         if(PORTAbits.RA6 == 0){
+"112
+[; ;Main.c: 112:         if(PORTAbits.RA6 == 0){
 [e $ ! == -> . . _PORTAbits 0 6 `i -> 0 `i 313  ]
 {
-"108
-[; ;Main.c: 108:             playTone(392);
-[e ( _playTone (1 -> 392 `i ]
-"109
-[; ;Main.c: 109:         }
-}
-[e :U 313 ]
-"110
-[; ;Main.c: 110:         if(PORTAbits.RA7 == 0){
-[e $ ! == -> . . _PORTAbits 0 7 `i -> 0 `i 314  ]
-{
-"111
-[; ;Main.c: 111:             playTone(440);
-[e ( _playTone (1 -> 440 `i ]
-"112
-[; ;Main.c: 112:         }
-}
-[e :U 314 ]
 "113
-[; ;Main.c: 113:         if(PORTBbits.RB0 == 0){
-[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 315  ]
-{
+[; ;Main.c: 113:             playTone(392);
+[e ( _playTone (1 -> 392 `i ]
 "114
-[; ;Main.c: 114:             playTone(493);
-[e ( _playTone (1 -> 493 `i ]
+[; ;Main.c: 114:             __nop();
+[e ( ___nop ..  ]
 "115
 [; ;Main.c: 115:         }
 }
-[e :U 315 ]
+[e :U 313 ]
 "116
-[; ;Main.c: 116:         if(PORTBbits.RB1 == 0){
-[e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 316  ]
+[; ;Main.c: 116:         if(PORTAbits.RA7 == 0){
+[e $ ! == -> . . _PORTAbits 0 7 `i -> 0 `i 314  ]
 {
 "117
-[; ;Main.c: 117:             playTone(523);
-[e ( _playTone (1 -> 523 `i ]
+[; ;Main.c: 117:             playTone(440);
+[e ( _playTone (1 -> 440 `i ]
 "118
-[; ;Main.c: 118:         }
-}
-[e :U 316 ]
+[; ;Main.c: 118:             __nop();
+[e ( ___nop ..  ]
 "119
-[; ;Main.c: 119:         if(PORTBbits.RB2 == 0){
-[e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 317  ]
-{
+[; ;Main.c: 119:         }
+}
+[e :U 314 ]
 "120
-[; ;Main.c: 120:             playTone(587);
-[e ( _playTone (1 -> 587 `i ]
+[; ;Main.c: 120:         if(PORTBbits.RB0 == 0){
+[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 315  ]
+{
 "121
-[; ;Main.c: 121:         }
-}
-[e :U 317 ]
+[; ;Main.c: 121:             playTone(493);
+[e ( _playTone (1 -> 493 `i ]
 "122
-[; ;Main.c: 122:         if(PORTBbits.RB3 == 0){
-[e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 318  ]
-{
+[; ;Main.c: 122:             __nop();
+[e ( ___nop ..  ]
 "123
-[; ;Main.c: 123:             playTone(659);
-[e ( _playTone (1 -> 659 `i ]
-"124
-[; ;Main.c: 124:         }
+[; ;Main.c: 123:         }
 }
-[e :U 318 ]
-"125
-[; ;Main.c: 125:         if(PORTBbits.RB4 == 0){
-[e $ ! == -> . . _PORTBbits 0 4 `i -> 0 `i 319  ]
+[e :U 315 ]
+"124
+[; ;Main.c: 124:         if(PORTBbits.RB1 == 0){
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 316  ]
 {
+"125
+[; ;Main.c: 125:             playTone(523);
+[e ( _playTone (1 -> 523 `i ]
 "126
-[; ;Main.c: 126:             playTone(698);
-[e ( _playTone (1 -> 698 `i ]
+[; ;Main.c: 126:             __nop();
+[e ( ___nop ..  ]
 "127
 [; ;Main.c: 127:         }
 }
-[e :U 319 ]
+[e :U 316 ]
 "128
-[; ;Main.c: 128:         if(PORTBbits.RB5 == 0){
-[e $ ! == -> . . _PORTBbits 0 5 `i -> 0 `i 320  ]
+[; ;Main.c: 128:         if(PORTBbits.RB2 == 0){
+[e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 317  ]
 {
 "129
-[; ;Main.c: 129:             playTone(784);
-[e ( _playTone (1 -> 784 `i ]
+[; ;Main.c: 129:             playTone(587);
+[e ( _playTone (1 -> 587 `i ]
 "130
-[; ;Main.c: 130:         }
-}
-[e :U 320 ]
+[; ;Main.c: 130:             __nop();
+[e ( ___nop ..  ]
 "131
-[; ;Main.c: 131:         if(PORTBbits.RB6){
-[e $ ! != -> . . _PORTBbits 0 6 `i -> 0 `i 321  ]
-{
+[; ;Main.c: 131:         }
+}
+[e :U 317 ]
 "132
-[; ;Main.c: 132:             playTone(880);
-[e ( _playTone (1 -> 880 `i ]
+[; ;Main.c: 132:         if(PORTBbits.RB3 == 0){
+[e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 318  ]
+{
 "133
-[; ;Main.c: 133:         }
-}
-[e :U 321 ]
+[; ;Main.c: 133:             playTone(659);
+[e ( _playTone (1 -> 659 `i ]
 "134
-[; ;Main.c: 134:         if(PORTBbits.RB7){
-[e $ ! != -> . . _PORTBbits 0 7 `i -> 0 `i 322  ]
-{
+[; ;Main.c: 134:             __nop();
+[e ( ___nop ..  ]
 "135
-[; ;Main.c: 135:             playTone(987);
-[e ( _playTone (1 -> 987 `i ]
-"136
-[; ;Main.c: 136:         }
+[; ;Main.c: 135:         }
 }
-[e :U 322 ]
-"137
-[; ;Main.c: 137:         if(PORTCbits.RC1){
-[e $ ! != -> . . _PORTCbits 0 1 `i -> 0 `i 323  ]
+[e :U 318 ]
+"136
+[; ;Main.c: 136:         if(PORTBbits.RB4 == 0){
+[e $ ! == -> . . _PORTBbits 0 4 `i -> 0 `i 319  ]
 {
+"137
+[; ;Main.c: 137:             playTone(698);
+[e ( _playTone (1 -> 698 `i ]
 "138
-[; ;Main.c: 138:             playMelody();
-[e ( _playMelody ..  ]
+[; ;Main.c: 138:             __nop();
+[e ( ___nop ..  ]
 "139
 [; ;Main.c: 139:         }
 }
-[e :U 323 ]
+[e :U 319 ]
 "140
-[; ;Main.c: 140:     };
+[; ;Main.c: 140:         if(PORTBbits.RB5 == 0){
+[e $ ! == -> . . _PORTBbits 0 5 `i -> 0 `i 320  ]
+{
+"141
+[; ;Main.c: 141:             playTone(784);
+[e ( _playTone (1 -> 784 `i ]
+"142
+[; ;Main.c: 142:             __nop();
+[e ( ___nop ..  ]
+"143
+[; ;Main.c: 143:         }
+}
+[e :U 320 ]
+"144
+[; ;Main.c: 144:         if(PORTBbits.RB6 == 0){
+[e $ ! == -> . . _PORTBbits 0 6 `i -> 0 `i 321  ]
+{
+"145
+[; ;Main.c: 145:             playTone(880);
+[e ( _playTone (1 -> 880 `i ]
+"146
+[; ;Main.c: 146:             __nop();
+[e ( ___nop ..  ]
+"147
+[; ;Main.c: 147:         }
+}
+[e :U 321 ]
+"148
+[; ;Main.c: 148:         if(PORTBbits.RB7 == 0){
+[e $ ! == -> . . _PORTBbits 0 7 `i -> 0 `i 322  ]
+{
+"149
+[; ;Main.c: 149:             playTone(987);
+[e ( _playTone (1 -> 987 `i ]
+"150
+[; ;Main.c: 150:             __nop();
+[e ( ___nop ..  ]
+"151
+[; ;Main.c: 151:         }
+}
+[e :U 322 ]
+"152
+[; ;Main.c: 152:         if(PORTCbits.RC1 == 0){
+[e $ ! == -> . . _PORTCbits 0 1 `i -> 0 `i 323  ]
+{
+"153
+[; ;Main.c: 153:             playMelody();
+[e ( _playMelody ..  ]
+"154
+[; ;Main.c: 154:             __nop();
+[e ( ___nop ..  ]
+"155
+[; ;Main.c: 155:         }
+}
+[e :U 323 ]
+"156
+[; ;Main.c: 156:         __nop();
+[e ( ___nop ..  ]
+"157
+[; ;Main.c: 157:         __nop();
+[e ( ___nop ..  ]
+"158
+[; ;Main.c: 158:     };
 }
 [e :U 304 ]
 [e $U 305  ]
 [e :U 306 ]
-"141
-[; ;Main.c: 141:     return;
+"159
+[; ;Main.c: 159:     return;
 [e $UE 303  ]
-"142
-[; ;Main.c: 142: }
+"160
+[; ;Main.c: 160: }
 [e :UE 303 ]
 }

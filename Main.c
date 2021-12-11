@@ -17,13 +17,13 @@ Microcontroller: PIC18F4520
 
 // Functions.
 // Calculate the time (ms) necessary to create a specific tone by formula.
+float n;
+int x;
 int calculateTime(int note) {
     // Calculate time. Multiply by 1 million to create correct amount of ms.
-    float n;
-    n = ((1/note)/2)*1000000;
+    n = ( ( ( 1 / note ) / 2 ) * 1000000 );
     
     // Round down the number by converting into integer and cutting of the rest.
-    int x;
     x = (int)n;
     return x;
 }
@@ -37,10 +37,12 @@ void delay_ms(int time) {
 }
 
 // Create a given tone by activating the output to the speaker for a given amount of time.
+int time;
+int i;
 void playTone(int note) {
   // Calculate the time needed to create the tone.
-  int time = calculateTime(note);
-  for(int i=0; i<note; i++)
+  time = calculateTime(note);
+  for(i=0; i<note; i++)
     {
         pinOutput = 0;
         delay_ms(time);
@@ -49,25 +51,23 @@ void playTone(int note) {
     }
 }
 
-void playMelody() {
+/*void playMelody() {
     int random = rand() % 2 + 1;
     int melody1[] = {a,a,h,a,d,cis,a,a,h,a,e,d,a,a,a,fis,d,cis,h,g,g,fis,d,e,d,a,a,h,a,d,cis,a,a,h,a,e,d,a,a,a,fis,d,cis,d,cis,h,g,g,fis,d,e,d};
     int melody2[] = {c,e,g,a,h,a,g,e,c,e,g,a,b,a,g,e,F,A1,c,d,es,d,e,A1,c,e,g,a,b,a,g,e,G,H,d,H,F,A1,c,A1,c,e,g,a,b,a,g,e};
     if(random == 1) {
-        size_t n = sizeof(melody1) / sizeof(melody1[0]);
+        int n = sizeof(melody1) / sizeof(melody1[0]);
         for(int m = 0; m < n; m++) {
             playTone(melody1[m]);
-            delay_ms(1000);
         }
     }
     if(random == 2) {
-        size_t n = sizeof(melody2) / sizeof(melody2[0]);
+        int n = sizeof(melody2) / sizeof(melody2[0]);
         for(int m = 0; m < n; m++) {
             playTone(melody2[m]);
-            delay_ms(1000);
         }
     }
-}
+}*/
 
 // Main function.
 void main(void) {
@@ -81,61 +81,75 @@ void main(void) {
     
     // Start loop, waiting for button/user input.
     while(1) {
-        Nop();
-        Nop();
-        
         // Check if pin got activated. Then play tone.
-        if(pinInput1 == 0){
+        if(pinInput1 == 1){
             playTone(c);
+            Nop();
         }
-        if(pinInput2 == 0){
+        if(pinInput2 == 1){
             playTone(cis);
+            Nop();
         }
-        if(pinInput3 == 0){
+        if(pinInput3 == 1){
             playTone(d);
+            Nop();
         }
-        if(pinInput4 == 0){
+        if(pinInput4 == 1){
             playTone(dis);
+            Nop();
         }
-        if(pinInput5 == 0){
+        if(pinInput5 == 1){
             playTone(e);
+            Nop();
         }
-        if(pinInput6 == 0){
+        if(pinInput6 == 1){
             playTone(f);
+            Nop();
         }
-        if(pinInput7 == 0){
+        if(pinInput7 == 1){
             playTone(g);
+            Nop();
         }
-        if(pinInput8 == 0){
+        if(pinInput8 == 1){
             playTone(a);
+            Nop();
         }
-        if(pinInput9 == 0){
+        if(pinInput9 == 1){
             playTone(h);
+            Nop();
         }
-        if(pinInput10 == 0){
+        if(pinInput10 == 1){
             playTone(C1);
+            Nop();
         }
-        if(pinInput11 == 0){
+        if(pinInput11 == 1){
             playTone(D1);
+            Nop();
         }
-        if(pinInput12 == 0){
+        if(pinInput12 == 1){
             playTone(E);
+            Nop();
         }
-        if(pinInput13 == 0){
+        if(pinInput13 == 1){
             playTone(F);
+            Nop();
         }
-        if(pinInput14 == 0){
+        if(pinInput14 == 1){
             playTone(G);
+            Nop();
         }
-        if(pinInput15){
+        if(pinInput15 == 1){
             playTone(A1);
+            Nop();
         }
-        if(pinInput16){
+        if(pinInput16 == 1){
             playTone(H);
+            Nop();
         }
-        if(pinMelody){
+        /*if(pinMelody == 1){
             playMelody();
-        }
+            Nop();
+        }*/
     };
     return;
 }

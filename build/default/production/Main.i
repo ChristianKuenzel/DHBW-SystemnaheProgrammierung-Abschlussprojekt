@@ -4584,13 +4584,13 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 
+float n;
+int x;
 int calculateTime(int note) {
 
-    float n;
-    n = ((1/note)/2)*1000000;
+    n = ( ( ( 1 / note ) / 2 ) * 1000000 );
 
 
-    int x;
     x = (int)n;
     return x;
 }
@@ -4604,9 +4604,10 @@ void delay_ms(int time) {
 }
 
 
+int time;
 void playTone(int note) {
 
-  int time = calculateTime(note);
+  time = calculateTime(note);
   for(int i=0; i<note; i++)
     {
         PORTCbits.RC0 = 0;
@@ -4634,7 +4635,6 @@ void playMelody() {
             delay_ms(1000);
         }
     }
-
 }
 
 
@@ -4652,58 +4652,76 @@ void main(void) {
         __nop();
         __nop();
 
-
         if(PORTAbits.RA0 == 0){
             playTone(261);
+            __nop();
         }
         if(PORTAbits.RA1 == 0){
             playTone(277);
+            __nop();
         }
         if(PORTAbits.RA2 == 0){
             playTone(293);
+            __nop();
         }
         if(PORTAbits.RA3 == 0){
             playTone(311);
+            __nop();
         }
         if(PORTAbits.RA4 == 0){
             playTone(329);
+            __nop();
         }
         if(PORTAbits.RA5 == 0){
             playTone(349);
+            __nop();
         }
         if(PORTAbits.RA6 == 0){
             playTone(392);
+            __nop();
         }
         if(PORTAbits.RA7 == 0){
             playTone(440);
+            __nop();
         }
         if(PORTBbits.RB0 == 0){
             playTone(493);
+            __nop();
         }
         if(PORTBbits.RB1 == 0){
             playTone(523);
+            __nop();
         }
         if(PORTBbits.RB2 == 0){
             playTone(587);
+            __nop();
         }
         if(PORTBbits.RB3 == 0){
             playTone(659);
+            __nop();
         }
         if(PORTBbits.RB4 == 0){
             playTone(698);
+            __nop();
         }
         if(PORTBbits.RB5 == 0){
             playTone(784);
+            __nop();
         }
-        if(PORTBbits.RB6){
+        if(PORTBbits.RB6 == 0){
             playTone(880);
+            __nop();
         }
-        if(PORTBbits.RB7){
+        if(PORTBbits.RB7 == 0){
             playTone(987);
+            __nop();
         }
-        if(PORTCbits.RC1){
+        if(PORTCbits.RC1 == 0){
             playMelody();
+            __nop();
         }
+        __nop();
+        __nop();
     };
     return;
 }

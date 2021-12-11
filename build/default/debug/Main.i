@@ -7,16 +7,9 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "Main.c" 2
-
-
-
-
-
-
-
-
+# 16 "Main.c"
 # 1 "./Definitions.h" 1
-# 45 "./Definitions.h"
+# 67 "./Definitions.h"
 #pragma config OSC = HSPLL
 #pragma config FCMEN = OFF
 #pragma config IESO = OFF
@@ -4585,17 +4578,24 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\xc.h" 2 3
-# 102 "./Definitions.h" 2
-# 9 "Main.c" 2
+# 124 "./Definitions.h" 2
+# 16 "Main.c" 2
 
 
+
+
+float n;
+int x;
 int calculateTime(int note) {
-    float n;
-    n = ((1/note)/2)*1000000;
-    int x;
+
+    n = ( ( ( 1 / note ) / 2 ) * 1000000 );
+
+
     x = (int)n;
     return x;
 }
+
+
 
 void delay_ms(int time) {
     for(int j=0; j<time; j++) {
@@ -4603,10 +4603,13 @@ void delay_ms(int time) {
     }
 }
 
-void playTone(int note)
-{
-  int time = calculateTime(note);
-  for(int i=0; i<note; i++)
+
+int time;
+int i;
+void playTone(int note) {
+
+  time = calculateTime(note);
+  for(i=0; i<note; i++)
     {
         PORTCbits.RC0 = 0;
         delay_ms(time);
@@ -4615,63 +4618,111 @@ void playTone(int note)
     }
 }
 
+void playMelody() {
+    int random = rand() % 2 + 1;
+    int melody1[] = {440,440,493,440,293,277,440,440,493,440,329,293,440,440,440,369,293,277,493,392,392,369,293,329,293,440,440,493,440,293,277,440,440,493,440,329,293,440,440,440,369,293,277,293,277,493,392,392,369,293,329,293};
+    int melody2[] = {261,329,392,440,493,440,392,329,261,329,392,440,466,440,392,329,698,880,261,293,311,293,329,880,261,329,392,440,466,440,392,329,784,987,293,987,698,880,261,880,261,329,392,440,466,440,392,329};
+    if(random == 1) {
+        size_t n = sizeof(melody1) / sizeof(melody1[0]);
+        for(int m = 0; m < n; m++) {
+            playTone(melody1[m]);
+            delay_ms(1000);
+        }
+    }
+    if(random == 2) {
+        size_t n = sizeof(melody2) / sizeof(melody2[0]);
+        for(int m = 0; m < n; m++) {
+            playTone(melody2[m]);
+            delay_ms(1000);
+        }
+    }
+}
+
+
 void main(void) {
+
 
     TRISA = 0b11111111;
     TRISB = 0b11111111;
+
+
     TRISCbits.RC0 = 0;
+
 
     while(1) {
         __nop();
         __nop();
+
         if(PORTAbits.RA0 == 0){
             playTone(261);
+            __nop();
         }
         if(PORTAbits.RA1 == 0){
             playTone(277);
+            __nop();
         }
         if(PORTAbits.RA2 == 0){
             playTone(293);
+            __nop();
         }
         if(PORTAbits.RA3 == 0){
             playTone(311);
+            __nop();
         }
         if(PORTAbits.RA4 == 0){
             playTone(329);
+            __nop();
         }
         if(PORTAbits.RA5 == 0){
             playTone(349);
+            __nop();
         }
         if(PORTAbits.RA6 == 0){
             playTone(392);
+            __nop();
         }
         if(PORTAbits.RA7 == 0){
             playTone(440);
+            __nop();
         }
         if(PORTBbits.RB0 == 0){
             playTone(493);
+            __nop();
         }
         if(PORTBbits.RB1 == 0){
             playTone(523);
+            __nop();
         }
         if(PORTBbits.RB2 == 0){
             playTone(587);
+            __nop();
         }
         if(PORTBbits.RB3 == 0){
             playTone(659);
+            __nop();
         }
         if(PORTBbits.RB4 == 0){
             playTone(698);
+            __nop();
         }
         if(PORTBbits.RB5 == 0){
             playTone(784);
+            __nop();
         }
-        if(PORTBbits.RB6){
+        if(PORTBbits.RB6 == 0){
             playTone(880);
+            __nop();
         }
-        if(PORTBbits.RB7){
+        if(PORTBbits.RB7 == 0){
             playTone(987);
+            __nop();
         }
+        if(PORTCbits.RC1 == 0){
+            playMelody();
+            __nop();
+        }
+        __nop();
+        __nop();
     };
     return;
 }

@@ -1,14 +1,14 @@
 /*
-Copyright 2021, DHBW Lörrach
+Copyright 2021, DHBW LÃ¶rrach
 Systemnahe Pogrammierung, Abschlussprojekt Piano
 
 Group #8:
 Leonard Kipar <Mail> <https://github.com/leonard-kipar>
-Christian Künzel <chriskuenzel@web.de> <https://github.com/ChristianKuenzel>
+Christian KÃ¼nzel <chriskuenzel@web.de> <https://github.com/ChristianKuenzel>
 
 GitHub: <https://github.com/ChristianKuenzel/DHBW-SystemnaheProgrammierung-Abschlussprojekt>
 
-MPLab & Prometheus
+MPLab & Proteus
 Microcontroller: PIC18F4520
 */
 
@@ -18,14 +18,14 @@ Microcontroller: PIC18F4520
 // Buttons
 // Pins are defined as digital input in main.c
 // For each button pressed is a seperat pin available.
-#define pinInput1 PORTAbits.RA0
-#define pinInput2 PORTAbits.RA1
-#define pinInput3 PORTAbits.RA2
-#define pinInput4 PORTAbits.RA3
-#define pinInput5 PORTAbits.RA4
-#define pinInput6 PORTAbits.RA5
-#define pinInput7 PORTAbits.RA6
-#define pinInput8 PORTAbits.RA7
+#define pinInput1 PORTDbits.RD0
+#define pinInput2 PORTDbits.RD1
+#define pinInput3 PORTDbits.RD2
+#define pinInput4 PORTDbits.RD3
+#define pinInput5 PORTDbits.RD4
+#define pinInput6 PORTDbits.RD5
+#define pinInput7 PORTDbits.RD6
+#define pinInput8 PORTDbits.RD7
 #define pinInput9 PORTBbits.RB0
 #define pinInput10 PORTBbits.RB1
 #define pinInput11 PORTBbits.RB2
