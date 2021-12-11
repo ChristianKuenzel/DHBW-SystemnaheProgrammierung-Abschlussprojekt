@@ -34,6 +34,7 @@ Microcontroller: PIC18F4520
 #define pinInput14 PORTBbits.RB5
 #define pinInput15 PORTBbits.RB6
 #define pinInput16 PORTBbits.RB7
+// Pin to play a fix melody.
 #define pinMelody PORTCbits.RC1
 
 // Speaker
@@ -58,10 +59,11 @@ Microcontroller: PIC18F4520
 #define G 784
 #define A1 880
 #define H 987
-//Needed for melody not used by any button
+// Needed for melody not used by any button.
 #define fis 369
 #define es 311
 #define b 466
+
 // Further standard configuration.
 // CONFIG1H
 #pragma config OSC = HSPLL      // Oscillator Selection bits (HS oscillator, PLL enabled (Clock Frequency = 4 x FOSC1))
