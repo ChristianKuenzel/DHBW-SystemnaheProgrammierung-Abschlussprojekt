@@ -51,9 +51,9 @@ void playTone(int note) {
     }
 }
 
-/*void playMelody() {
+
 // Play a random melody out of 2 by playing tones sequently out of a fixed array.
-void playMelody() {
+/*void playMelody() {
     // Choose random melody.
     int random = rand() % 2 + 1;
     
@@ -156,9 +156,8 @@ void main(void) {
             playTone(H);
             Nop();
         }
-        /*if(pinMelody == 1){
         // Check if pin got activated. Then play melody.
-        if(pinMelody){
+        /*if(pinMelody == 1){
             playMelody();
             Nop();
         }*/
